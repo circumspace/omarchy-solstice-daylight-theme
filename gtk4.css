@@ -45,6 +45,29 @@ window {
   color: #000000;
 }
 
+/* Content / list surfaces. File managers render their item area on nodes the
+   @define-color tokens don't reach, so apps diverge (e.g. Strata's listview
+   falls back to a dark grey). Pin the common content nodes to the cream view
+   canvas so every file manager agrees; the :selected rules below still win
+   on specificity. */
+.view,
+textview, textview text,
+scrolledwindow > viewport,
+list, list > row,
+listview, listview > row,
+columnview, columnview > row,
+gridview, gridview > child,
+iconview,
+treeview, treeview.view {
+  background-color: @view_bg_color;
+  color: @view_fg_color;
+}
+
+.sidebar, .navigation-sidebar, list.sidebar {
+  background-color: @sidebar_bg_color;
+  color: @sidebar_fg_color;
+}
+
 .gtkstyle-fallback:selected {
   background-color: #B04878;
   color: #FFFFFF;

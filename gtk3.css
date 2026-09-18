@@ -28,6 +28,25 @@ window {
   color: #000000;
 }
 
+/* Content / list surfaces — pin nodes the @define-color tokens miss so file
+   managers agree (cream content on grey chrome). :selected rules below win on
+   specificity. */
+.view,
+textview, textview text,
+scrolledwindow viewport,
+list, list row,
+iconview,
+treeview, treeview.view {
+  background-color: @theme_base_color;
+  color: @theme_text_color;
+}
+
+sidebar, .sidebar, stacksidebar.sidebar,
+.sidebar list, .sidebar row {
+  background-color: @theme_bg_color;
+  color: @theme_fg_color;
+}
+
 .gtkstyle-fallback:selected {
   background-color: #B04878;
   color: #FFFFFF;
