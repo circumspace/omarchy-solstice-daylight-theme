@@ -1,41 +1,56 @@
 mode = "light"
 
-# Screenshot-calibrated Solaris CDE palette (solCDE.jpg, solcdegeneral.png).
-# Chrome:   #AFB2C3 — grey-lavender panels, bars, menubars (pixel-extracted)
-# Canvas:   #FAF5EC — warm cream for terminals and text editors
-# Trough:   #9497A6 — scrollbar troughs, recessed areas
-# Rose:     #B04878 — selection, active titlebars, hover highlights
-accent = "#B04878"
-selection = "#B04878"
+# Solstice Daylight — Screenshot-calibrated Solaris 9 CDE palette.
+# Derived from solCDE.jpg / solcdegeneral.png / the Solaris-9 B00merang port.
+#
+# Chrome   #AFB2C3  grey-lavender panels, bars, menubars (pixel-extracted)
+# Canvas   #FAF5EC  warm cream text-editor / terminal background
+# Trough   #9497A6  scrollbar troughs, recessed surfaces
+# Rose     #B04878  selection, active titlebar, focus, hover highlight
+#
+# ANSI palette given in the canonical color0..color15 form; Omarchy's resolver
+# (omarchy-theme-color) maps color1..color6 / color9..color14 back to the
+# semantic red/green/yellow/blue/magenta/cyan names the templates consume.
+# color0/color7 are pinned to background/foreground by the resolver, so the
+# inverted light-theme ANSI (black = chrome, white = ink) is intentional.
+
+# ── Structure ────────────────────────────────────────────────────────────────
+accent               = "#B04878"
+selection            = "#B04878"
 selection_background = "#B04878"
 selection_foreground = "#FFFFFF"
-muted = "#585A6A"
 
-background = "#AFB2C3"
-dark_background = "#9497A6"
-darker_background = "#808898"
-lighter_background = "#C2C4C8"
+background           = "#AFB2C3"
+dark_background      = "#9497A6"
+darker_background    = "#808898"
+lighter_background   = "#C2C4C8"
 
-foreground = "#000000"
-dark_foreground = "#808898"
-light_foreground = "#585A6A"
-bright_foreground = "#000000"
+foreground           = "#000000"
+dark_foreground      = "#808898"
+light_foreground     = "#585A6A"
 
-red = "#C23D3D"
-yellow = "#C4983B"
-orange = "#C2591E"
-green = "#4A7A5A"
-cyan = "#5A8A8A"
-blue = "#4A6DA0"
-magenta = "#B04878"
-brown = "#8B7355"
+# Semantic colors without a color0..color15 slot.
+orange               = "#C2591E"   # battery/low indicators; not yellow
+brown                = "#8B7355"
 
-bright_red = "#CF5555"
-bright_yellow = "#D4B04B"
-bright_green = "#5A8A6A"
-bright_cyan = "#6A9A9A"
-bright_blue = "#5A7DB0"
-bright_magenta = "#C86090"
-
-hyprland_active_border = "#B04878"
+# ── Hyprland borders ───────────────────────────────────────────────────────
+hyprland_active_border   = "#B04878"
 hyprland_inactive_border = "#9497A6"
+
+# ── ANSI 16-color palette (canonical) ──────────────────────────────────────
+color0  = "#AFB2C3"   # black   (chrome — background)
+color1  = "#C23D3D"   # red
+color2  = "#4A7A5A"   # green
+color3  = "#C4983B"   # yellow
+color4  = "#4A6DA0"   # blue
+color5  = "#B04878"   # magenta (rose accent)
+color6  = "#5A8A8A"   # cyan
+color7  = "#000000"   # white   (ink — foreground)
+color8  = "#585A6A"   # br black  (muted)
+color9  = "#CF5555"   # br red
+color10 = "#5A8A6A"   # br green
+color11 = "#D4B04B"   # br yellow
+color12 = "#5A7DB0"   # br blue
+color13 = "#C86090"   # br magenta
+color14 = "#6A9A9A"   # br cyan
+color15 = "#000000"   # br white  (bright foreground)
