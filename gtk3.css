@@ -1,0 +1,58 @@
+/* Solaris CDE — GTK3 chrome and selection colors. */
+@define-color theme_bg_color #AFB2C3;
+@define-color theme_fg_color #000000;
+@define-color theme_base_color #FAF5EC;
+@define-color theme_text_color #000000;
+@define-color theme_selected_bg_color #B04878;
+@define-color theme_selected_fg_color #FFFFFF;
+@define-color theme_unfocused_bg_color #AFB2C3;
+@define-color theme_unfocused_fg_color #000000;
+@define-color theme_unfocused_base_color #FAF5EC;
+@define-color theme_unfocused_text_color #000000;
+@define-color theme_unfocused_selected_bg_color #B04878;
+@define-color theme_unfocused_selected_fg_color #FFFFFF;
+
+/* Chrome surfaces */
+headerbar,
+toolbar,
+menubar,
+.titlebar {
+  background-color: #AFB2C3;
+  background-image: none;
+  color: #000000;
+}
+
+window {
+  background-color: #AFB2C3;
+  background-image: none;
+  color: #000000;
+}
+
+.gtkstyle-fallback:selected {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+.view:selected, .view:selected:focus,
+iconview:selected, iconview:selected:focus,
+textview text:selected, textview text:selected:focus {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+row:selected {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+entry:selected, entry selection {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+treeview.view:selected, treeview.view:selected:focus {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+* { border-radius: 0; }

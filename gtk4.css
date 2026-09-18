@@ -1,0 +1,75 @@
+/* Solaris CDE — GTK4 chrome and selection colors. */
+@define-color accent_bg_color #B04878;
+@define-color accent_fg_color #FFFFFF;
+@define-color accent_color #B04878;
+
+@define-color window_bg_color #AFB2C3;
+@define-color window_fg_color #000000;
+@define-color view_bg_color #FAF5EC;
+@define-color view_fg_color #000000;
+@define-color headerbar_bg_color #AFB2C3;
+@define-color headerbar_fg_color #000000;
+@define-color headerbar_backdrop_color #AFB2C3;
+@define-color sidebar_bg_color #C2C4C8;
+@define-color sidebar_fg_color #000000;
+@define-color card_bg_color #C2C4C8;
+@define-color card_fg_color #000000;
+@define-color dialog_bg_color #AFB2C3;
+@define-color dialog_fg_color #000000;
+
+@define-color theme_bg_color #AFB2C3;
+@define-color theme_fg_color #000000;
+@define-color theme_base_color #FAF5EC;
+@define-color theme_text_color #000000;
+@define-color theme_selected_bg_color #B04878;
+@define-color theme_selected_fg_color #FFFFFF;
+@define-color theme_unfocused_bg_color #AFB2C3;
+@define-color theme_unfocused_fg_color #000000;
+@define-color theme_unfocused_base_color #FAF5EC;
+@define-color theme_unfocused_text_color #000000;
+@define-color theme_unfocused_selected_bg_color #B04878;
+@define-color theme_unfocused_selected_fg_color #FFFFFF;
+
+headerbar,
+toolbar,
+menubar,
+.titlebar {
+  background-color: #AFB2C3;
+  background-image: none;
+  color: #000000;
+}
+
+window {
+  background-color: #AFB2C3;
+  background-image: none;
+  color: #000000;
+}
+
+.gtkstyle-fallback:selected {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+.view:selected, .view:selected:focus,
+iconview:selected, iconview:selected:focus,
+textview text:selected, textview text:selected:focus {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+row:selected {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+entry:selected, entry selection {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+treeview.view:selected, treeview.view:selected:focus {
+  background-color: #B04878;
+  color: #FFFFFF;
+}
+
+* { border-radius: 0; }
