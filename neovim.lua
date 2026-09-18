@@ -1,11 +1,13 @@
 -- Solstice Daylight — Neovim theme for Omarchy (aether.nvim base16 engine).
--- Follows Omarchy's stock contract (see the `beta` theme) so the built-in
--- `theme-hotreload` autocmd can unload + re-apply it on theme switch:
---   * a real plugin spec (spec[1] ≠ "LazyVim/LazyVim") gives a theme_plugin_name
---   * opts.colorscheme is a STRING ("aether") — resolvable by :colorscheme
---   * aether.hotreload wires it to Omarchy's LazyReload event
--- Colors are the Solaris 9 CDE light palette: cream canvas, chrome grey-lavender,
--- rose (#B04878) for selection + keyword/storage accents.
+-- Follows Omarchy's stock `beta`-theme contract so `theme-hotreload` can
+-- live-swap it: a real plugin spec (spec[1] ≠ "LazyVim/LazyVim") + a STRING
+-- opts.colorscheme resolvable by :colorscheme.
+-- Palette: cream canvas, grey-lavender chrome, rose (#B04878) selection/accents.
+--
+-- aether only sets Visual at load (derived from an internal `blue0`, not base02)
+-- and does NOT re-clobber it afterward, so we force the rose selection groups
+-- synchronously right after applying the scheme, and re-apply on every future
+-- ColorScheme event (Omarchy's live reload re-fires `:colorscheme aether`).
 return {
 	{
 		"bjarneo/aether.nvim",
@@ -15,28 +17,42 @@ return {
 			disable_italics = false,
 			colors = {
 				base00 = "#FAF5EC", -- bg: cream canvas
-				base01 = "#E9E2D2", -- status / strong surfaces
-				base02 = "#B04878", -- SELECTION background (rose)
-				base03 = "#808898", -- comments / invisibles (chrome-dim)
-				base04 = "#585A6A", -- dark foreground (muted)
-				base05 = "#000000", -- default foreground (ink)
-				base06 = "#20222A", -- light foreground
-				base07 = "#AFB2C3", -- light background (chrome)
-
-				base08 = "#C23D3D", -- red: variables / errors
-				base09 = "#C2591E", -- orange: integers / constants
-				base0A = "#C4983B", -- yellow: classes / types
-				base0B = "#4A7A5A", -- green: strings
-				base0C = "#5A8A8A", -- cyan: support / regex
-				base0D = "#4A6DA0", -- blue: functions / keywords
-				base0E = "#B04878", -- magenta: storage / cursor-word (rose)
-				base0F = "#8B7355", -- brown: deprecated
+				base01 = "#E9E2D2",
+				base02 = "#E4DCC7", -- cursorline (a step off cream)
+				base03 = "#808898", -- comments (chrome-dim)
+				base04 = "#585A6A", -- dark fg (muted)
+				base05 = "#000000", -- fg (ink)
+				base06 = "#20222A",
+				base07 = "#AFB2C3", -- chrome
+				base08 = "#C23D3D", -- red
+				base09 = "#C2591E", -- orange
+				base0A = "#C4983B", -- yellow
+				base0B = "#4A7A5A", -- green (strings)
+				base0C = "#5A8A8A", -- cyan
+				base0D = "#4A6DA0", -- blue (functions)
+				base0E = "#B04878", -- magenta (storage/cursor-word, rose)
+				base0F = "#8B7355", -- brown
 			},
 		},
 		config = function(_, opts)
+			local rose, onrose = "#B04878", "#FFFFFF"
+			local function force_selection()
+				local hi = vim.api.nvim_set_hl
+				hi(0, "Visual", { bg = rose, fg = onrose })
+				hi(0, "VisualNOS", { bg = rose, fg = onrose })
+				hi(0, "IncSearch", { bg = rose, fg = onrose, bold = true })
+				hi(0, "MatchWord", { bg = rose, fg = onrose })
+				hi(0, "MatchWordRef", { bg = rose, fg = onrose })
+			end
+			local grp = vim.api.nvim_create_augroup("solstice_daylight_selection", { clear = true })
+			vim.api.nvim_create_autocmd("ColorScheme", {
+				pattern = "aether",
+				group = grp,
+				callback = force_selection,
+			})
 			require("aether").setup(opts)
 			vim.cmd.colorscheme("aether")
-			require("aether.hotreload").setup()
+			force_selection()
 		end,
 	},
 	{
