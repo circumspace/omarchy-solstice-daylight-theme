@@ -2,12 +2,15 @@
 -- Follows Omarchy's stock `beta` contract so `theme-hotreload` can live-swap it:
 -- real plugin spec (spec[1] ≠ "LazyVim/LazyVim") + STRING opts.colorscheme.
 --
--- aether ignores most base16 slots for its actual highlight/Treesitter groups
--- (it maps Keyword/Constant/Type/Identifier to its own semantic palette), leaving
--- pale, low-contrast tokens on the cream canvas. We seed base16 for what aether
--- honors, then force readable colors across the real groups + TS captures right
--- after :colorscheme and on every ColorScheme event (re-fires on live reload).
--- Selection highlight is the brighter rose #B04878 with white ink, kept distinct.
+-- aether ignores base16 for most highlight/Treesitter groups (it maps them to
+-- its own semantic palette), so on the cream canvas several tokens leak as pale
+-- pastels — and a whole class of MARKDOWN/`@markup.*` groups (what READMEs are
+-- made of) are left at aether's washed defaults. We force readable, on-theme
+-- hues across the real groups + TS captures + markdown, right after :colorscheme
+-- and on every ColorScheme event (re-fires on live reload). Keeping the cream
+-- canvas is deliberate: measured WCAG shows a darker bg collapses contrast for
+-- the near-black body ink (all tokens drop toward 1:1), so the fix is the
+-- tokens, not the background.
 return {
 	{
 		"bjarneo/aether.nvim",
@@ -25,19 +28,29 @@ return {
 			},
 		},
 		config = function(_, opts)
+			-- on-theme readable palette for the light (cream) canvas:
 			local rose, onrose = "#B04878", "#FFFFFF"
+			local C = {
+				ink = "#111111", body = "#22242C", muted = "#4A4F5C", comment = "#5E6472",
+				string = "#3E6B4C", number = "#8A6608", constant = "#9E4E14",
+				keyword = "#A83F6E", operator = "#2F6E6C", function_ = "#3E5E8C",
+				type = "#6E5737", special = "#8A5A00", link = "#3E5E8C", quote = "#5E6472",
+			}
 			local function force_contrast()
 				local hi = vim.api.nvim_set_hl
-				local C = {
-					comment = "#5E6472", string = "#3E6B4C", number = "#8A6608",
-					constant = "#9E4E14", keyword = "#A83F6E", operator = "#2F6E6C",
-					function_ = "#3E5E8C", identifier = "#22242C", type = "#6E5737",
-					variable = "#111111", special = "#8A5A00",
-				}
 				local function many(names, tbl)
 					for _, g in ipairs(names) do hi(0, g, tbl) end
 				end
-				-- selection / search (rose, white ink)
+				-- base structural text
+				hi(0, "Normal", { fg = C.ink })
+				hi(0, "NormalFloat", { fg = C.ink, bg = "#F2EADA" })
+				hi(0, "NormalNC", { fg = C.ink })
+				hi(0, "NonText", { fg = C.muted })
+				hi(0, "Whitespace", { fg = C.muted })
+				hi(0, "EndOfBuffer", { fg = C.muted })
+				hi(0, "Conceal", { fg = C.muted })
+				hi(0, "Directory", { fg = C.function_, bold = true })
+				-- selection / search / matches (rose, white ink)
 				hi(0, "Visual", { bg = rose, fg = onrose })
 				hi(0, "VisualNOS", { bg = rose, fg = onrose })
 				hi(0, "IncSearch", { bg = rose, fg = onrose, bold = true })
@@ -47,6 +60,7 @@ return {
 				hi(0, "Comment", { fg = C.comment, italic = true })
 				many({ "@comment", "@comment.documentation" }, { fg = C.comment, italic = true })
 				hi(0, "@comment.todo", { fg = C.constant, bold = true, italic = true })
+				hi(0, "Todo", { fg = C.constant, bold = true, italic = true })
 				-- strings
 				hi(0, "String", { fg = C.string })
 				many({ "@string", "@string.documentation", "@character", "@string.special" }, { fg = C.string })
@@ -56,7 +70,7 @@ return {
 				hi(0, "Constant", { fg = C.constant })
 				hi(0, "Boolean", { fg = C.constant })
 				many({ "@number", "@float", "@constant", "@constant.builtin", "@boolean" }, { fg = C.constant })
-				-- keywords / statements / preproc (all deep rose)
+				-- keywords / statements / preproc
 				many({ "Keyword", "Statement", "Conditional", "Repeat", "Exception", "Label",
 					"Include", "Define", "Macro", "PreProc" }, { fg = C.keyword })
 				many({ "@keyword", "@keyword.function", "@keyword.return", "@keyword.conditional",
@@ -66,7 +80,7 @@ return {
 				hi(0, "Operator", { fg = C.operator })
 				hi(0, "@operator", { fg = C.operator })
 				hi(0, "Special", { fg = C.special })
-				hi(0, "@function.macro", { fg = C.special })
+				many({ "@function.macro", "@spell" }, { fg = C.special })
 				-- functions
 				hi(0, "Function", { fg = C.function_ })
 				many({ "@function", "@function.call", "@method", "@method.call", "@function.builtin" },
@@ -76,13 +90,29 @@ return {
 				many({ "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@structure", "@constructor" },
 					{ fg = C.type })
 				-- identifiers / variables
-				hi(0, "Identifier", { fg = C.identifier })
-				many({ "@variable", "@variable.member", "@property", "@field", "@parameter" }, { fg = C.identifier })
+				hi(0, "Identifier", { fg = C.body })
+				many({ "@variable", "@variable.member", "@property", "@field", "@parameter" }, { fg = C.body })
 				hi(0, "@variable.builtin", { fg = C.keyword, italic = true })
-				-- markup
-				hi(0, "@text.title", { fg = C.function_, bold = true })
-				hi(0, "@text.uri", { fg = C.function_, underline = true })
-				hi(0, "@markup.heading", { fg = C.keyword, bold = true })
+				-- markdown / markup (this is what README previews render)
+				many({ "@markup.strong", "@markup.heading", "@text.strong", "@text.title", "@text.title.1.markdown",
+					"@text.title.2.markdown", "@text.title.3.markdown", "@text.title.4.markdown",
+					"@text.title.5.markdown", "@text.title.6.markdown", "@markup.heading.1", "@markup.heading.2",
+					"@markup.heading.3", "@markup.heading.4" }, { fg = C.keyword, bold = true })
+				many({ "@markup.emphasis", "@text.emphasis", "@markup.italic" }, { fg = C.body, italic = true })
+				many({ "@markup.raw", "@markup.raw.block", "@markup.raw.inline", "@string.special", "@none" },
+					{ fg = C.string })
+				many({ "@markup.link", "@markup.link.label", "@text.uri", "@string.special.url" },
+					{ fg = C.link, underline = true })
+				hi(0, "@markup.link.url", { fg = C.link, underline = true })
+				hi(0, "@markup.list", { fg = C.constant })
+				hi(0, "@markup.quote", { fg = C.quote, italic = true })
+				hi(0, "@markup.math", { fg = C.type })
+				hi(0, "@markup.environment", { fg = C.function_ })
+				hi(0, "@markup.diff.add", { fg = C.string, bold = true })
+				hi(0, "@markup.diff.delete", { fg = C.constant, bold = true })
+				-- diagnostic / completion readability
+				hi(0, "@text.diff.add", { fg = C.string })
+				hi(0, "@text.diff.delete", { fg = C.constant })
 			end
 			local grp = vim.api.nvim_create_augroup("solstice_daylight_contrast", { clear = true })
 			vim.api.nvim_create_autocmd("ColorScheme", {
