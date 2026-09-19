@@ -5,7 +5,7 @@ Calibrated pixel-by-pixel against real CDE desktop screenshots: the signature
 grey-lavender chrome, warm cream text canvas, and rose active/selection accent.
 
 This is the **light** variant. See
-[Solstice Nightwatch](https://github.com/hermeticvm/omarchy-theme-solstice-nightwatch)
+[Solstice Nightwatch](https://github.com/circumspace/omarchy-theme-solstice-nightwatch)
 for the dark companion.
 
 ## Preview
@@ -15,7 +15,7 @@ for the dark companion.
 ## Install
 
 ```bash
-omarchy theme install https://github.com/hermeticvm/omarchy-theme-solstice-daylight
+omarchy theme install https://github.com/circumspace/omarchy-theme-solstice-daylight
 ```
 
 Then select **Solstice Daylight** from the Omarchy theme picker.
@@ -23,7 +23,7 @@ Then select **Solstice Daylight** from the Omarchy theme picker.
 Or manually:
 
 ```bash
-git clone https://github.com/hermeticvm/omarchy-theme-solstice-daylight \
+git clone https://github.com/circumspace/omarchy-theme-solstice-daylight \
   ~/.config/omarchy/themes/solstice-daylight
 ```
 
@@ -66,7 +66,7 @@ recolored to this palette: **Solyaris, Dimple, Dune, Swirl, Squares**.
 
 ## Related
 
-- **[Solstice Nightwatch](https://github.com/hermeticvm/omarchy-theme-solstice-nightwatch)** — the dark companion.
+- **[Solstice Nightwatch](https://github.com/circumspace/omarchy-theme-solstice-nightwatch)** — the dark companion.
 
 ## License
 
