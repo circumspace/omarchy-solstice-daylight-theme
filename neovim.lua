@@ -91,7 +91,8 @@ return {
 					{ fg = C.type })
 				-- identifiers / variables
 				hi(0, "Identifier", { fg = C.body })
-				many({ "@variable", "@variable.member", "@property", "@field", "@parameter" }, { fg = C.body })
+				many({ "@variable", "@variable.member", "@variable.parameter", "@variable.global",
+					"@property", "@field", "@parameter" }, { fg = C.body })
 				hi(0, "@variable.builtin", { fg = C.keyword, italic = true })
 				-- markdown / markup (this is what README previews render)
 				many({ "@markup.strong", "@markup.heading", "@text.strong", "@text.title", "@text.title.1.markdown",
