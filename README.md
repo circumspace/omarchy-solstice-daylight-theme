@@ -50,7 +50,7 @@ Full 16-color ANSI palette in [`palette.txt`](palette.txt).
 - **Browser chrome** — `chromium.theme` tints Brave/Chromium/Edge frame color
   (light tones are handled via Chromium's MD3 palette; expect subtle results).
 - **Neovim** — self-contained `neovim.lua` colorscheme (no plugin dependency).
-- **btop, Zed/VS Code, Obsidian, Helix** — generated from `colors.toml`.
+- **btop, Zed/VS Code, Helix** — generated from `colors.toml`.
 
 ## Wallpapers
 
