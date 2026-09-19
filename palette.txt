@@ -30,4 +30,4 @@ color14  br cyan  #6A9A9A
 color15  br white #000000
 
 # Dark companion: Solstice Nightwatch
-# https://github.com/circumspace/omarchy-theme-solstice-nightwatch
+# https://github.com/circumspace/omarchy-solstice-nightwatch-theme
