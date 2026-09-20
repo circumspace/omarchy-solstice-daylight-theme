@@ -2,22 +2,22 @@
 # Calibrated from Solaris 9 CDE screenshots (solCDE.jpg, solcdegeneral.png,
 # solaris_cde_by_aaro2011) and the B00merang-Project/Solaris-9 port.
 
-chrome            #AFB2C3   # panels, bars, menubars (pixel-extracted)
-canvas            #FAF5EC   # terminal / text-editor background
+chrome            #AEB2C3   # panels, bars, menubars (pixel-extracted)
+canvas            #FFF7E9   # terminal / text-editor background
 trough            #9497A6   # scrollbar troughs, recessed surfaces
 recessed          #808898   # deepest bevel shadows
 bevel_light       #C2C4C8   # raised highlight edges
-rose              #B04878   # selection, active titlebar, focus, hover
+rose              #B24D7A   # selection, active titlebar, focus, hover
 ink               #000000   # primary foreground
 muted             #585A6A   # secondary text
 
 # ANSI 16 (terminal)
-color00  black    #AFB2C3
+color00  black    #AEB2C3
 color01  red      #C23D3D
 color02  green    #4A7A5A
 color03  yellow   #C4983B
 color04  blue     #4A6DA0
-color05  magenta  #B04878
+color05  magenta  #B24D7A
 color06  cyan     #5A8A8A
 color07  white    #000000
 color08  br black #585A6A

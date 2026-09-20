@@ -3,10 +3,10 @@ mode = "light"
 # Solstice Daylight — Screenshot-calibrated Solaris 9 CDE palette.
 # Derived from solCDE.jpg / solcdegeneral.png / the Solaris-9 B00merang port.
 #
-# Chrome   #AFB2C3  grey-lavender panels, bars, menubars (pixel-extracted)
-# Canvas   #FAF5EC  warm cream text-editor / terminal background
+# Chrome   #AEB2C3  grey-lavender panels, bars, menubars (pixel-extracted)
+# Canvas   #FFF7E9  warm cream text-editor / terminal background
 # Trough   #9497A6  scrollbar troughs, recessed surfaces
-# Rose     #B04878  selection, active titlebar, focus, hover highlight
+# Rose     #B24D7A  selection, active titlebar, focus, hover highlight
 #
 # ANSI palette given in the canonical color0..color15 form; Omarchy's resolver
 # (omarchy-theme-color) maps color1..color6 / color9..color14 back to the
@@ -15,12 +15,12 @@ mode = "light"
 # inverted light-theme ANSI (black = chrome, white = ink) is intentional.
 
 # ── Structure ────────────────────────────────────────────────────────────────
-accent               = "#B04878"
-selection            = "#B04878"
-selection_background = "#B04878"
+accent               = "#B24D7A"
+selection            = "#B24D7A"
+selection_background = "#B24D7A"
 selection_foreground = "#FFFFFF"
 
-background           = "#AFB2C3"
+background           = "#AEB2C3"
 dark_background      = "#9497A6"
 darker_background    = "#808898"
 lighter_background   = "#C2C4C8"
@@ -34,16 +34,16 @@ orange               = "#C2591E"   # battery/low indicators; not yellow
 brown                = "#8B7355"
 
 # ── Hyprland borders ───────────────────────────────────────────────────────
-hyprland_active_border   = "#B04878"
+hyprland_active_border   = "#B24D7A"
 hyprland_inactive_border = "#9497A6"
 
 # ── ANSI 16-color palette (canonical) ──────────────────────────────────────
-color0  = "#AFB2C3"   # black   (chrome — background)
+color0  = "#AEB2C3"   # black   (chrome — background)
 color1  = "#C23D3D"   # red
 color2  = "#4A7A5A"   # green
 color3  = "#C4983B"   # yellow
 color4  = "#4A6DA0"   # blue
-color5  = "#B04878"   # magenta (rose accent)
+color5  = "#B24D7A"   # magenta (rose accent)
 color6  = "#5A8A8A"   # cyan
 color7  = "#000000"   # white   (ink — foreground)
 color8  = "#585A6A"   # br black  (muted)

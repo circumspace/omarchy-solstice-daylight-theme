@@ -31,17 +31,17 @@ git clone https://github.com/circumspace/omarchy-solstice-daylight-theme \
 
 | Role | Hex |
 |------|-----|
-| Chrome (panels, bars) | `#AFB2C3` |
-| Canvas (terminal, docs) | `#FAF5EC` |
+| Chrome (panels, bars) | `#AEB2C3` |
+| Canvas (terminal, docs) | `#FFF7E9` |
 | Trough / recessed | `#9497A6` |
-| Rose (selection, active) | `#B04878` |
+| Rose (selection, active) | `#B24D7A` |
 | Ink (foreground) | `#000000` |
 
 Full 16-color ANSI palette in [`palette.txt`](palette.txt).
 
 ## What's themed
 
-- **Hyprland** — rose active border (`#B04878`), grey-lavender inactive border.
+- **Hyprland** — rose active border (`#B24D7A`), grey-lavender inactive border.
 - **GTK 3 / GTK 4** — chrome + rose selection overrides; sharp CDE corners
   (`border-radius: 0`). GTK loads user CSS once at startup, so **restart** GTK
   apps after switching *into or out of* this theme for colors to take.
