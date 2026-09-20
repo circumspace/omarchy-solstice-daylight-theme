@@ -41,7 +41,8 @@ hyprland_inactive_border = "#9497A6"
 color0  = "#AEB2C3"   # black   (chrome — background)
 color1  = "#C23D3D"   # red
 color2  = "#4A7A5A"   # green
-color3  = "#C4983B"   # yellow
+color3  = "#8D6D2B"   # yellow (darkened from screenshot-extracted #C4983B for
+                      #         WCAG 4.5:1 on cream; hue preserved)
 color4  = "#4A6DA0"   # blue
 color5  = "#B24D7A"   # magenta (rose accent)
 color6  = "#5A8A8A"   # cyan
@@ -49,7 +50,8 @@ color7  = "#000000"   # white   (ink — foreground)
 color8  = "#585A6A"   # br black  (muted)
 color9  = "#CF5555"   # br red
 color10 = "#5A8A6A"   # br green
-color11 = "#D4B04B"   # br yellow
+color11 = "#A18026"   # br yellow (darkened from screenshot-extracted #D4B04B,
+                      #           3.5:1 on cream; hue preserved)
 color12 = "#5A7DB0"   # br blue
 color13 = "#C86090"   # br magenta
 color14 = "#6A9A9A"   # br cyan
