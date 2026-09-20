@@ -20,7 +20,12 @@ selection            = "#B24D7A"
 selection_background = "#B24D7A"
 selection_foreground = "#FFFFFF"
 
-background           = "#AEB2C3"
+# background = the canvas cream. Omarchy's terminal templates (foot/ghostty/
+# alacritty/kitty, btop, helix) bind to this key, and the theme spec puts the
+# canvas on terminal surfaces ("Canvas — terminal / text-editor background").
+# Desktop chrome remains #AEB2C3 via the hand-pinned gtk3/gtk4.css and the
+# wallpaper generator's chrome base.
+background           = "#FFF7E9"
 dark_background      = "#9497A6"
 darker_background    = "#808898"
 lighter_background   = "#C2C4C8"
@@ -38,7 +43,7 @@ hyprland_active_border   = "#B24D7A"
 hyprland_inactive_border = "#9497A6"
 
 # ── ANSI 16-color palette (canonical) ──────────────────────────────────────
-color0  = "#AEB2C3"   # black   (chrome — background)
+color0  = "#FFF7E9"   # black   (pinned to background/canvas by the resolver)
 color1  = "#C23D3D"   # red
 color2  = "#4A7A5A"   # green
 color3  = "#8D6D2B"   # yellow (darkened from screenshot-extracted #C4983B for
