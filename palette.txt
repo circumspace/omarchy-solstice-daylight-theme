@@ -18,15 +18,15 @@ color02  green    #4A7A5A
 color03  yellow   #8D6D2B  # screenshot-extracted #C4983B darkened to 4.5:1 (hue kept)
 color04  blue     #4A6DA0
 color05  magenta  #B24D7A
-color06  cyan     #5A8A8A
+color06  cyan     #4E7777
 color07  white    #000000
 color08  br black #5D6069
-color09  br red   #CF5555
-color10  br green #5A8A6A
-color11  br yel   #A18026  # screenshot-extracted #D4B04B darkened to 3.5:1 (hue kept)
-color12  br blue  #5A7DB0
-color13  br mag   #C86090
-color14  br cyan  #6A9A9A
+color09  br red   #C83D3D
+color10  br green #4E775C
+color11  br yel   #886C20  # screenshot-extracted #D4B04B darkened to 4.5:1 (hue kept)
+color12  br blue  #5073A6
+color13  br mag   #BE427B
+color14  br cyan  #507676
 color15  br white #000000
 
 # Dark companion: Solstice Nightwatch

@@ -31,12 +31,12 @@ darker_background    = "#808898"
 lighter_background   = "#C2C4C8"
 
 foreground           = "#000000"
-dark_foreground      = "#808898"
+dark_foreground      = "#676F7E"
 light_foreground     = "#585A6A"
 
 # Semantic colors without a color0..color15 slot.
-orange               = "#C2591E"   # battery/low indicators; not yellow
-brown                = "#8B7355"
+orange               = "#B9551D"   # battery/low indicators; not yellow
+brown                = "#856E51"
 
 # ── Hyprland borders ───────────────────────────────────────────────────────
 hyprland_active_border   = "#B24D7A"
@@ -50,14 +50,14 @@ color3  = "#8D6D2B"   # yellow (darkened from screenshot-extracted #C4983B for
                       #         WCAG 4.5:1 on cream; hue preserved)
 color4  = "#4A6DA0"   # blue
 color5  = "#B24D7A"   # magenta (rose accent)
-color6  = "#5A8A8A"   # cyan
+color6  = "#4E7777"   # cyan
 color7  = "#000000"   # white   (ink — foreground)
 color8  = "#585A6A"   # br black  (muted)
-color9  = "#CF5555"   # br red
-color10 = "#5A8A6A"   # br green
-color11 = "#A18026"   # br yellow (darkened from screenshot-extracted #D4B04B,
-                      #           3.5:1 on cream; hue preserved)
-color12 = "#5A7DB0"   # br blue
-color13 = "#C86090"   # br magenta
-color14 = "#6A9A9A"   # br cyan
+color9  = "#C83D3D"   # br red
+color10 = "#4E775C"   # br green
+color11 = "#886C20"   # br yellow (darkened from screenshot-extracted #D4B04B,
+                      #           4.5:1 on cream; hue preserved)
+color12 = "#5073A6"   # br blue
+color13 = "#BE427B"   # br magenta
+color14 = "#507676"   # br cyan
 color15 = "#000000"   # br white  (bright foreground)
