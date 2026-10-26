@@ -1,74 +1,61 @@
-# Solstice — Daylight
+# Solstice Daylight for Omarchy
 
-An Omarchy theme inspired by the **Solaris 9 Common Desktop Environment (CDE)**.
-Calibrated pixel-by-pixel against real CDE desktop screenshots: the signature
-grey-lavender chrome, warm cream text canvas, and rose active/selection accent.
+A Solaris CDE-inspired light theme with grey-lavender chrome, a warm cream
+canvas, and rose accents.
 
-This is the **light** variant. See
-[Solstice Nightwatch](https://github.com/circumspace/omarchy-solstice-nightwatch-theme)
-for the dark companion.
-
-## Preview
-
-![Solstice Daylight](screenshots/daylight.png)
+![Solstice Daylight theme preview](preview.png)
 
 ## Install
 
-```bash
+```sh
 omarchy theme install https://github.com/circumspace/omarchy-solstice-daylight-theme
 ```
 
-Then select **Solstice Daylight** from the Omarchy theme picker.
+## Backgrounds
 
-Or manually:
+Fourteen CDE-inspired wallpapers are included. Cycle through them with
+`omarchy theme bg next`.
 
-```bash
-git clone https://github.com/circumspace/omarchy-solstice-daylight-theme \
-  ~/.config/omarchy/themes/solstice-daylight
-```
+![Solstice Daylight backgrounds](backgrounds.jpg)
+
+The 6K backdrops are generated from
+[NsCDE](https://github.com/NsCDE/NsCDE) XPM tile patterns and recolored to the
+Solstice Daylight palette.
 
 ## Palette
 
-| Role | Hex |
-|------|-----|
-| Chrome (panels, bars) | `#AEB2C3` |
-| Canvas (terminal, docs) | `#FFF7E9` |
-| Trough / recessed | `#9497A6` |
-| Rose (selection, active) | `#B24D7A` |
-| Ink (foreground) | `#000000` |
+| Role | Color |
+| --- | --- |
+| Background | `#FFF7E9` |
+| Foreground | `#000000` |
+| Chrome | `#AEB2C3` |
+| Accent | `#B24D7A` |
+| Recessed surface | `#9497A6` |
 
-Full 16-color ANSI palette in [`palette.txt`](palette.txt).
+Omarchy generates terminal, editor, and application themes from
+[`colors.toml`](colors.toml).
 
-## What's themed
+## CDE details
 
-- **Hyprland** — rose active border (`#B24D7A`), grey-lavender inactive border.
-- **GTK 3 / GTK 4** — chrome + rose selection overrides; sharp CDE corners
-  (`border-radius: 0`). GTK loads user CSS once at startup, so **restart** GTK
-  apps after switching *into or out of* this theme for colors to take.
-- **Terminal** — Ghostty / Alacritty / Kitty / foot palettes generated from
-  `colors.toml`.
-- **Browser chrome** — `chromium.theme` sets the frame tint; apply with
-  `omarchy theme set browser` (the policy write needs sudo). For full
-  toolbar/tab colors, enable **Use GTK** in the browser's appearance settings —
-  Chromium picks up this theme's GTK CSS.
-- **Neovim** — self-contained `neovim.lua` colorscheme (no plugin dependency).
-- **btop, Zed/VS Code, Helix** — generated from `colors.toml`.
+The theme includes sharp-cornered GTK 3/4 styling and a matching Chromium frame
+tint. GTK loads user CSS at startup, so restart GTK applications after switching
+into or out of this theme.
 
-## Wallpapers
+Detailed color values and their provenance are documented in
+[`palette.txt`](palette.txt).
 
-Five procedurally-generated backdrops in `backgrounds/` (6K, downscale cleanly),
-rendered from [NsCDE](https://github.com/NsCDE/NsCDE) XPM tile patterns
-recolored to this palette: **Solyaris, Dimple, Dune, Swirl, Squares**.
+## Solstice family
 
-## Provenance & credits
+- [Solstice Nightwatch](https://github.com/circumspace/omarchy-solstice-nightwatch-theme)
+  — dark violet and rose
+- [Solstice Crimson](https://github.com/circumspace/omarchy-solstice-crimson-theme)
+  — original Solaris CDE Crimson4 palette
 
-- Source screenshots: Solaris 9 CDE desktop captures (see [`palette.txt`](palette.txt)).
-- B00merang Project's [Solaris-9](https://github.com/B00merang-Project/Solaris-9) port.
-- NsCDE backdrops: https://github.com/NsCDE/NsCDE
+## Credits
 
-## Related
-
-- **[Solstice Nightwatch](https://github.com/circumspace/omarchy-solstice-nightwatch-theme)** — the dark companion.
+- Solaris 9 CDE desktop captures
+- [B00merang Project's Solaris 9 theme](https://github.com/B00merang-Project/Solaris-9)
+- [NsCDE](https://github.com/NsCDE/NsCDE)
 
 ## License
 
