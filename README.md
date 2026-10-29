@@ -13,7 +13,7 @@ omarchy theme install https://github.com/circumspace/omarchy-solstice-daylight-t
 
 ## Backgrounds
 
-Fourteen CDE-inspired wallpapers are included. Cycle through them with
+Seven CDE-inspired wallpapers are included. Cycle through them with
 `omarchy theme bg next`.
 
 ![Solstice Daylight backgrounds](backgrounds.jpg)
