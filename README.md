@@ -3,7 +3,7 @@
 A Solaris CDE-inspired light theme with grey-lavender chrome, a warm cream
 canvas, and rose accents.
 
-![Solstice Daylight theme preview](preview.png)
+![Solstice Daylight](screenshots/daylight.png)
 
 ## Install
 
